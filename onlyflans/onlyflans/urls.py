@@ -17,12 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from web import views
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
-    path('index/', views.index, name='index'),
+    path('', views.home, name='home'),
     path('about/', views.about, name='about'),
     path('contact/', views.contact, name='contact'),
     path('reservations/', views.reservations, name='reservations'),
     path('service/', views.service, name='service'),
     path('testimonial/', views.testimonial, name='testimonial'),
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
