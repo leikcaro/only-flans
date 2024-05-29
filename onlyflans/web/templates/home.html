@@ -2,34 +2,29 @@
 {% load static %}
 
 {% block content %}
+
 <!-- Carousel Start -->
-<div class="container-fluid p-0 mb-5">
-    <div id="blog-carousel" class="carousel slide overlay-bottom" data-ride="carousel1">
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="w-100" src="{%static 'img/carrusel1.avif'%}" alt="carrusel1">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <h2 class="text-primary font-weight-medium m-0">Sedosidad en el paladar</h2>
-                    <h6 class="display-1 text-white m-0">Flan de ricota y menta</h6>
-                    
-                </div>
+                <img src="onlyflans\web\static\img\carrusel1.avif" class="d-block w-100" alt="carrusel1">
             </div>
-            <div class="carousel-item">
-                <img class="w-100" src="{%static 'img/carrusel2.jpg'%}" alt="carrusel2">
-                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                    <h2 class="text-primary font-weight-medium m-0">No dejarás bocado en el plato</h2>
-                    <h6 class="display-1 text-white m-0">Flan de caramelo</h6>
-                    
-                </div>
+        <div class="carousel-item">
+                <img src="onlyflans\web\static\img\carrusel2.jpg" class="d-block w-100" alt="carrusel2">
+            </div>
+        <div class="carousel-item">
+                <img src="onlyflans\web\static\img\carrusel3.jpg" class="d-block w-100" alt="carrusel3">
+            </div>
         </div>
-        <a class="carousel-control-prev" href="#blog-carousel" data-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </a>
-        <a class="carousel-control-next" href="#blog-carousel" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </a>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-</div>
 <!-- Carousel End -->
 
 
@@ -364,6 +359,10 @@
 </div>
 <!-- Reservation End -->
 
+<!-- Footer injection  -->
+{% block 'footer' %}
+{% include 'footer.html' %}
+{% endblock %}
 
 
 
