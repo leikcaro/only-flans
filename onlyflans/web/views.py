@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from . import models
 # Create your views here.
 
 def home(request):
@@ -25,3 +26,11 @@ def reservations(request):
 
 def testimonial(request):
     return render(request, 'testimonial.html', {})
+
+
+def lista_clientes(request):
+
+    todos_clientes = models.Cliente.objects.all() 
+    context = {'clientes':todos_clientes}
+
+    return render(request,'list.html',context=context)

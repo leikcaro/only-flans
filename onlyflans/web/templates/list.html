@@ -1,0 +1,17 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Clientes</title>
+</head>
+<body>
+    <h1>Clientes actuales:</h1>
+    <ul>
+    {% for cliente in clientes %}
+      <li><h3>{{cliente.nombres}}</h3></li>
+
+    {% endfor %}
+    </ul>
+</body>
+</html>
