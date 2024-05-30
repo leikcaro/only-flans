@@ -41,4 +41,4 @@ def lista_flanes(request):
     todos_lanes = models.Flan.objects.all() 
     context = {'Flan':todos_flanes}
 
-    return render(request,'flans.html',context=context)
+    return render(request,'flan.html',context=context)

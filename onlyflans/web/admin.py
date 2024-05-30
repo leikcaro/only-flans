@@ -8,6 +8,6 @@ class ClienteAdmin(admin.ModelAdmin):
     list_display = ('nombres', 'apellidos', 'edad')
 
 
-# admin.site.register(Flan) o @admin.register(Flan)?
+@admin.register(Flan)# o admin.site.register(Flan) 
 class FlanAdmin(admin.ModelAdmin):
-    list_display = ('flan_id', 'nombre', 'descripción')
+    list_display = ('flan_id', 'nombre', 'descripcion')
