@@ -28,5 +28,6 @@ urlpatterns = [
     path('reservations/', views.reservations, name='reservations'),
     path('service/', views.service, name='service'),
     path('testimonial/', views.testimonial, name='testimonial'),
-    path('list/',views.lista_clientes,name='lista_clientes')
+    path('list/',views.lista_clientes,name='lista_clientes'),
+    path('flans/', views.lista_flanes, name='lista_flanes'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

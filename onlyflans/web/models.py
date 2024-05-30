@@ -11,3 +11,18 @@ class Cliente(models.Model):
     def __str__(self):
 
         return f"Cliente {self.nombres} {self.apellidos} tiene {self.edad} "
+
+class Flan(models.Model):
+    flan_id = models.UUIDField() #Serial
+    nombre = models.CharField(max_length=64) #Nombre del flan ej. Flan de ...
+    descripcion = models.TextField() #Regular o Light
+    preparacion = models.TextField() 
+    ingredientes = models.TextField()
+    img_url = models.URLField()
+    slug = models.SlugField() #flan_de_...
+    is_private = models.BooleanField() #Premium/No Premium
+    
+    def __str__(self):
+
+        return f"El {self.nombre} {self.img_url} es {self.descripcion} "
+    

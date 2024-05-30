@@ -34,3 +34,11 @@ def lista_clientes(request):
     context = {'clientes':todos_clientes}
 
     return render(request,'list.html',context=context)
+
+
+def lista_flanes(request):
+
+    todos_lanes = models.Flan.objects.all() 
+    context = {'Flan':todos_flanes}
+
+    return render(request,'flans.html',context=context)
