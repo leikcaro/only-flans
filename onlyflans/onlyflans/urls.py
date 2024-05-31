@@ -30,4 +30,5 @@ urlpatterns = [
     path('testimonial/', views.testimonial, name='testimonial'),
     path('list/',views.lista_clientes,name='lista_clientes'),
     path('flan/', views.lista_flanes, name='lista_flanes'),
+    path('menu/', views.menu, name='menu'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
