@@ -19,7 +19,7 @@ class Flan(models.Model):
     descripcion = models.TextField() #Regular o Light
     preparacion = models.TextField() 
     ingredientes = models.TextField()
-    img_url = models.URLField() # Definir 
+    img_url = models.ImageField(upload_to='static/flans/') 
     slug = models.SlugField() #flan_de_...
     is_private = models.BooleanField() #Premium/No Premium
     
