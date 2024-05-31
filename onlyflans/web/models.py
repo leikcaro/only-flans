@@ -4,14 +4,17 @@ import uuid
 
 # Create your models here.
 class Cliente(models.Model):
+    
     nombres = models.CharField(max_length=30)
-    apellidos = models.CharField(max_length=30) 
-    edad= models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(120)]) 
+    apellidos = models.CharField(max_length=30)
+    email = models.EmailField(max_length=50, default="cliente@cliente.cl") 
+    edad= models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(120)],default=18)
+    asunto = models.CharField(max_length=200, default="")
+    mensaje = models.TextField(max_length=1000, default="") 
     
 
     def __str__(self):
-
-        return f"Cliente {self.nombres} {self.apellidos} tiene {self.edad} "
+        return f"{self.nombres} {self.apellidos} - {self.email}"
 
 class Flan(models.Model):
     flan_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 

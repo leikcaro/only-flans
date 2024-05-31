@@ -15,6 +15,23 @@
     </div>
     <!-- Page Header End -->
 
+    <h2>Nuestras Sugerencias</h2>
+
+    <div class="container-fluid pt-5">
+        <div class="container">
+            <div class="section-title">
+                <h1 class="display-4">Flanes Privados</h1>
+                {% for flan in flanes %}
+                <div class="flan-item">
+                    <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">{{ flan.nombre }}</h4>
+                    <img src="{{ flan.img_url.url }}" alt="{{ flan.nombre }}" class="img-fluid">
+                    <p>{{ flan.descripcion }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
 
     <!-- Reservation Start -->
     <div class="container-fluid my-5">

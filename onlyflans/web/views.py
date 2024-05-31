@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect
 from . import models
 #from .models import Flan
 import uuid
-
+from .forms import ContactoForm
 # Create your views here.
 
 def home(request):
@@ -16,8 +16,18 @@ def index(request):
 def about(request):
     return render(request, 'about.html', {})
 
-def contact(request):
-    return render(request, 'contact.html', {})
+def gracias(request):
+    return render(request, 'gracias.html', {})
+
+def contacto_view(request):
+    if request.method == 'POST':
+        form = ContactoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('gracias')  # Redirige a una página de agradecimiento
+    else:
+        form = ContactoForm()
+    return render(request, 'contact.html', {'form': form})
 
 def menu(request):
     return render(request, 'menu.html', {})
@@ -26,7 +36,9 @@ def service(request):
     return render(request, 'service.html', {})
 
 def reservations(request):
-    return render(request, 'reservations.html', {})
+    flanes_privados = models.Flan.objects.filter(is_private=True)
+    context = {'flanes': flanes_privados}
+    return render(request, 'reservations.html', context=context)
 
 def testimonial(request):
     return render(request, 'testimonial.html', {})

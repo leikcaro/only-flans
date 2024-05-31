@@ -19,16 +19,19 @@ from django.urls import include, path
 from web import views
 from django.conf.urls.static import static
 from django.conf import settings
+from django.views.generic import TemplateView
+
 
 urlpatterns = [
     path('', views.home, name='home'),
     path('admin/', admin.site.urls),
     path('about/', views.about, name='about'),
-    path('contact/', views.contact, name='contact'),
+    path('contact/', views.contacto_view, name='contact'),
     path('reservations/', views.reservations, name='reservations'),
     path('service/', views.service, name='service'),
     path('testimonial/', views.testimonial, name='testimonial'),
     path('list/',views.lista_clientes,name='lista_clientes'),
     path('flan/', views.lista_flanes, name='lista_flanes'),
     path('menu/', views.menu, name='menu'),
+    path('gracias/', TemplateView.as_view(template_name='gracias.html'), name='gracias'),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

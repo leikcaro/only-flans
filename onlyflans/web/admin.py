@@ -5,7 +5,7 @@ from .models import Cliente, Flan
 
 @admin.register(Cliente)
 class ClienteAdmin(admin.ModelAdmin):
-    list_display = ('nombres', 'apellidos', 'edad')
+    list_display = ('nombres', 'apellidos', 'edad', 'asunto', 'mensaje')
 
 
 @admin.register(Flan)# o admin.site.register(Flan) 
