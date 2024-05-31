@@ -6,8 +6,9 @@ import uuid
 # Create your views here.
 
 def home(request):
-    
-    return render(request, 'home.html', {})
+    flanes_publicos = models.Flan.objects.filter(is_private=False)
+    context = {'flanes': flanes_publicos}
+    return render(request, 'home.html', context=context)
 
 def index(request):
     return render(request, 'index.html', {})

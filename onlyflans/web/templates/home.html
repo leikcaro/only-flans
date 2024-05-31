@@ -147,9 +147,14 @@
 <div class="container-fluid pt-5">
     <div class="container">
         <div class="section-title">
-            
-            <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Catálogo de Productos</h4>
-            <h1 class="display-4">Flanes</h1>
+            <h1 class="display-4">Flanes Públicos</h1>
+            {% for flan in flanes %}
+            <div class="flan-item">
+                <h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">{{ flan.nombre }}</h4>
+                <img src="{{ flan.img_url.url }}" alt="{{ flan.nombre }}" class="img-fluid">
+                <p>{{ flan.descripcion }}</p>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
