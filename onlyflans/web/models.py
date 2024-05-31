@@ -14,12 +14,12 @@ class Cliente(models.Model):
         return f"Cliente {self.nombres} {self.apellidos} tiene {self.edad} "
 
 class Flan(models.Model):
-    flan_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) #Serial
+    flan_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 
     nombre = models.CharField(max_length=64) #Nombre del flan ej. Flan de ...
     descripcion = models.TextField() #Regular o Light
     preparacion = models.TextField() 
     ingredientes = models.TextField()
-    img_url = models.URLField() # Definir
+    img_url = models.URLField() # Definir 
     slug = models.SlugField() #flan_de_...
     is_private = models.BooleanField() #Premium/No Premium
     

@@ -10,4 +10,4 @@ class ClienteAdmin(admin.ModelAdmin):
 
 @admin.register(Flan)# o admin.site.register(Flan) 
 class FlanAdmin(admin.ModelAdmin):
-    list_display = ('flan_id', 'nombre', 'descripcion')
+    list_display = ('flan_id', 'nombre', 'descripcion', 'preparacion', 'ingredientes', 'img_url', 'slug', 'is_private' )
