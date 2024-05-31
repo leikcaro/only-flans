@@ -1,0 +1,22 @@
+<!--Flan detail-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Detalle del Flan</title> 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+</head>
+<body>
+    <div class="container"> 
+        <h1>Detalle del Flan</h1> 
+        <div class="flan-detail">
+            <p><strong>ID del Flan:</strong> {{ flan.flan_id }}</p> <!-- Muestra el ID del flan -->
+            <p><strong>Nombre:</strong> {{ flan.nombre }}</p> <!-- Muestra el nombre del flan -->
+            <p><strong>Descripción:</strong> {{ flan.descripcion }}</p> <!-- Muestra la descripción del flan -->
+        </div>
+        <a href="{% url 'index' %}">Volver al inicio</a> <!-- Redirige a index.html -->
+    </div>
+</body>
+</html>

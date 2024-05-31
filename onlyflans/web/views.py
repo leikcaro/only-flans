@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from . import models
+import uuid
 # Create your views here.
 
 def home(request):
@@ -42,3 +43,12 @@ def lista_flanes(request):
     context = {'Flan':todos_flanes}
 
     return render(request,'flan.html',context=context)
+
+def flan_detail(request, flan_id):
+    try:
+        flan_id = uuid.UUID(flan_id)
+    except ValueError:
+        return render(request, 'error.html', {'message': 'Introduce un UUID válido.'})
+
+    flan = get_object_or_404(Flan, flan_id=flan_id)
+    return render(request, 'flan_detail.html', {'flan': flan})
