@@ -5,12 +5,11 @@ import uuid
 # Create your models here.
 class Cliente(models.Model):
     
+    email = models.EmailField(max_length=50, primary_key=True) 
     nombres = models.CharField(max_length=30)
     apellidos = models.CharField(max_length=30)
-    email = models.EmailField(max_length=50, default="cliente@cliente.cl") 
     edad= models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(120)],default=18)
-    asunto = models.CharField(max_length=200, default="")
-    mensaje = models.TextField(max_length=1000, default="") 
+
     
 
     def __str__(self):
@@ -29,4 +28,13 @@ class Flan(models.Model):
     def __str__(self):
 
         return f"El {self.nombre} {self.img_url} es {self.descripcion} "
+    
+class Contacto(models.Model):
+    
+    contacto_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    email = models.EmailField(default="")
+    nombres = models.CharField(max_length=30, default="")
+    apellidos = models.CharField(max_length=50, default="") 
+    asunto = models.CharField(max_length=200, default="")
+    mensaje = models.TextField(max_length=1000, default="") 
     

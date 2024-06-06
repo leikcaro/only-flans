@@ -1,5 +1,5 @@
 from django import forms
-from .models import Flan, Cliente
+from .models import Flan, Cliente, Contacto
 
 
 # class FlanForm(forms.ModelForm):
@@ -11,6 +11,6 @@ from .models import Flan, Cliente
 
 class ContactoForm(forms.ModelForm):
     class Meta:
-        model = Cliente
+        model = Contacto
         fields = ['nombres', 'apellidos', 'email', 'asunto', 'mensaje']  # Excluir el campo 'edad'
 

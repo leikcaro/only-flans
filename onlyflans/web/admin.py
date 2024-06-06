@@ -1,11 +1,15 @@
 from django.contrib import admin
-from .models import Cliente, Flan
+from .models import Cliente, Flan, Contacto
 # Register your models here.
 
 
 @admin.register(Cliente)
 class ClienteAdmin(admin.ModelAdmin):
-    list_display = ('nombres', 'apellidos', 'edad', 'asunto', 'mensaje')
+    list_display = ('email', 'nombres', 'apellidos', 'edad')
+    
+@admin.register(Contacto)
+class ClienteAdmin(admin.ModelAdmin):
+    list_display = ('email', 'nombres', 'apellidos', 'asunto', 'mensaje')
 
 
 @admin.register(Flan)# o admin.site.register(Flan) 
