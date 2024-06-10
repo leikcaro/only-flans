@@ -15,16 +15,27 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
-from web  import views
-from django.conf.urls.static import static
-from django.conf import settings
+from django.urls import path, include
+from web import views
+from web.views import index, about, welcome, contact, success, logged_out, test_ratelimit, login_view
+
+
+
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('about/', views.about, name='about'),
-    path('contact/', views.contact, name='contact'),
-    path('reservations/', views.reservations, name='reservations'),
-    path('service/', views.service, name='service'),
-    path('testimonial/', views.testimonial, name='testimonial'),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path("admin/", admin.site.urls),
+    path('', index, name='home'),
+    path('about/', about, name='about'),
+    path('welcome/', welcome, name='welcome'),
+    path('list/',views.lista_clientes,name='lista_clientes'),
+    path('flan/', views.lista_flanes, name='lista_flanes'),
+    path('contact/', contact, name='contact'),
+    path('success/', success, name='success'),
+    path('logged_out/', logged_out, name='logged_out'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('test-ratelimit/', test_ratelimit, name='test_ratelimit'),
+    path('login/', login_view, name='login'), #no va pq se ocupa el de accounts
+    
+]
+
+

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if form.errors %}
+<p>Su nombre de usuario y contraseña no coinciden. Inténtalo de nuevo.</p>
+{% endif %}
+
+{% if next %}
+{% if user.is_authenticated %}
+    <h2>Su cuenta no tiene acceso a esta página. </h2>
+    <h3>Para continuar, inicie sesión con una cuenta que tenga acceso.</h3>
+{% else %}
+<h2>Por favor inicie sesión para ver esta página.<h2>
+{% endif %}
+{% endif %}
+
+{% comment %} Se agrega estilo de bootstrap en el forms.py {% endcomment %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2>Login</h2>
+            {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endif %}
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                    {{ form.username }}
+                    {% if form.username.errors %}
+                        <div class="invalid-feedback">
+                            {{ form.username.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+                    {{ form.password }}
+                    {% if form.password.errors %}
+                        <div class="invalid-feedback">
+                            {{ form.password.errors }}
+                        </div>
+                    {% endif %}
+                </div>
+                <input type="submit" class="btn btn-primary" value="Login">
+                <input type="hidden" name="next" value="{{ next }}">
+            </form>
+            <a href="{% url 'password_reset' %}">¿Olvidó su contraseña?</a>
+        </div>
+    </div>
+</div>
+
+
+
+{# Asume que configura la vista de restablecimiento de contraseña en su URLconf #}
+
+
+{% endblock %}

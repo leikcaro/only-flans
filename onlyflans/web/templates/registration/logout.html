@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <h1>Hola, {{ user.get_username }}. Ud ya está logeado.</h1>
+{% else %}
+    <p>¡Sesión finalizada!</p>
+
+    <a href="{% url 'login'%}">Haga clic aquí para iniciar sesión nuevamente.</a>
+    <br>   
+    <br>
+{% endif %}
+{% endblock %}
